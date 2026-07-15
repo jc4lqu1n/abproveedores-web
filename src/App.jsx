@@ -993,14 +993,18 @@ function App() {
               </div>
             </a>
 
-            <div className="contact-card">
-              <Phone size={25} />
+            <a
+  className="contact-card"
+  href="tel:+569XXXXXXXX"
+  aria-label="Llamar a A&B Proveedores Integrales"
+>
+  <Phone size={25} />
 
-              <div>
-                <span>Atención comercial</span>
-                <strong>Contacto directo</strong>
-              </div>
-            </div>
+  <div>
+    <span>Atención comercial</span>
+    <strong>+56 9 8674 7101</strong>
+  </div>
+</a>
 
             <div className="contact-card">
               <MapPin size={25} />
