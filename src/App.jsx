@@ -99,24 +99,94 @@ const services = [
   },
 ];
 
+
+const supportPlans = [
+  {
+    icon: ClipboardCheck,
+    title: 'Plan Preventivo',
+    price: 'Desde 9 UF + IVA / mes',
+    description:
+      'Para empresas que necesitan prevenir fallas, mantener sus equipos al día y contar con soporte técnico planificado.',
+    items: [
+      'Soporte remoto de incidentes',
+      '1 visita preventiva mensual',
+      'Mantenimiento de computadores',
+      'Revisión de Windows y antivirus',
+      'Revisión de red, impresoras y respaldos',
+      'Informe mensual de atención',
+      'Acceso a A&B ServiceDesk',
+    ],
+  },
+  {
+    icon: Headphones,
+    title: 'Plan Administrado',
+    price: 'Cobertura según infraestructura',
+    description:
+      'Para organizaciones que requieren una gestión TI continua, con seguimiento de usuarios, infraestructura y servicios críticos.',
+    items: [
+      'Soporte remoto y presencial',
+      'Bolsa mensual de horas',
+      'Administración de redes y servidores',
+      'Gestión de respaldos y Microsoft 365',
+      'Inventario y trazabilidad de equipos',
+      'Seguimiento de tickets y convenios',
+      'A&B ServiceDesk incluido',
+    ],
+  },
+  {
+    icon: Layers3,
+    title: 'Plan Personalizado',
+    price: 'Evaluación técnica previa',
+    description:
+      'Para clínicas, notarías y empresas con infraestructura crítica o requerimientos que necesitan una cobertura diseñada a medida.',
+    items: [
+      'Levantamiento técnico inicial',
+      'Definición de alcance y criticidad',
+      'Cobertura por sedes o áreas',
+      'Servicios y visitas programadas',
+      'Continuidad operacional',
+      'Reportes y documentación técnica',
+      'Portal de cliente A&B',
+    ],
+  },
+];
+
 const sectors = [
   {
-    icon: HeartPulse,
-    title: 'Clínicas y centros médicos',
+    icon: Network,
+    title: 'Conectividad inestable',
     description:
-      'Continuidad operativa, conectividad, equipos clínicos, estaciones de trabajo y protección de datos.',
+      'Diagnosticamos y corregimos problemas de red, cableado, WiFi y comunicaciones que afectan la operación diaria.',
   },
   {
-    icon: Building2,
-    title: 'Notarías y oficinas jurídicas',
+    icon: Server,
+    title: 'Administración de usuarios y equipos',
     description:
-      'Servidores, sistemas notariales, impresoras, seguridad, respaldos y soporte especializado.',
+      'Centralizamos usuarios, estaciones de trabajo, permisos y políticas mediante servidores y Active Directory.',
   },
   {
-    icon: Stethoscope,
-    title: 'Empresas y organizaciones',
+    icon: Database,
+    title: 'Respaldos y recuperación',
     description:
-      'Administración integral de infraestructura, usuarios, redes, plataformas cloud y seguridad.',
+      'Implementamos estrategias de respaldo local y cloud para proteger información crítica y facilitar su recuperación.',
+  },
+  {
+    icon: Layers3,
+    title: 'Infraestructura sin planificación',
+    description:
+      'Levantamos, documentamos y reorganizamos entornos tecnológicos que han crecido sin una arquitectura definida.',
+  },
+  {
+    icon: Headphones,
+    title: 'Soporte sin trazabilidad',
+    description:
+      'Centralizamos tickets, inventario, horas de soporte y seguimiento mediante A&B ServiceDesk.',
+  },
+  {
+    icon: Cloud,
+    title: 'Modernización tecnológica',
+    description:
+      'Migramos y modernizamos servicios mediante Microsoft 365, cloud, virtualización y nuevas plataformas de infraestructura.',
   },
 ];
 
@@ -338,6 +408,10 @@ function App() {
             Servicios
           </a>
 
+          <a href="#planes" onClick={closeMenu}>
+            Planes
+          </a>
+
           <a href="#soluciones" onClick={closeMenu}>
             Soluciones
           </a>
@@ -355,7 +429,7 @@ function App() {
             href="#acceso-soporte"
             onClick={closeMenu}
           >
-            Soporte y Evaluación
+            Soporte
           </a>
         </nav>
       </header>
@@ -410,7 +484,7 @@ function App() {
                 href="#acceso-soporte"
               >
                 <Headphones size={20} />
-                Soporte y Mesa de Ayuda
+                A&B ServiceDesk
               </a>
             </div>
 
@@ -671,6 +745,246 @@ function App() {
           </div>
         </section>
 
+        <section
+          className="content-section section"
+          id="planes"
+        >
+          <div className="section-heading">
+            <span>Planes de soporte TI</span>
+
+            <h2>
+              Soporte profesional con seguimiento, prevención y control.
+            </h2>
+
+            <p>
+              Elija una modalidad de atención según el tamaño y criticidad
+              de su operación. Todos nuestros planes pueden administrarse
+              mediante A&B ServiceDesk.
+            </p>
+          </div>
+
+          <div className="services-grid">
+            {supportPlans.map((plan, index) => {
+              const Icon = plan.icon;
+
+              return (
+                <motion.article
+  className={`service-card plan-card ${
+    plan.title === 'Plan Preventivo'
+      ? 'plan-card-featured'
+      : ''
+  }`}
+  key={plan.title}
+  initial={{ opacity: 0, y: 24 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{
+    once: true,
+    amount: 0.2,
+  }}
+  transition={{
+    duration: 0.5,
+    delay: index * 0.06,
+  }}
+>
+  {plan.title === 'Plan Preventivo' && (
+    <span className="plan-recommended">
+      Recomendado
+    </span>
+  )}
+
+  <div className="service-icon">
+    <Icon size={27} />
+  </div>
+
+                  <h3>{plan.title}</h3>
+
+                  <strong>{plan.price}</strong>
+
+                  <p>{plan.description}</p>
+
+                  <ul>
+                    {plan.items.map((item) => (
+                      <li key={item}>
+                        <CheckCircle2 size={16} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    className="button button-secondary"
+                    type="button"
+                    onClick={openEvaluation}
+                  >
+                    Solicitar evaluación
+                    <ArrowRight size={18} />
+                  </button>
+                </motion.article>
+              );
+            })}
+          </div>
+        </section>
+
+        <section
+  className="about-section section"
+  id="servicedesk"
+>
+  <div className="servicedesk-layout">
+    <div className="servicedesk-copy">
+      <span className="section-label">
+        Plataforma de atención y seguimiento
+      </span>
+
+      <h2>
+        A&B ServiceDesk: soporte con trazabilidad real.
+      </h2>
+
+      <p>
+        Cada atención queda registrada y asociada al
+        convenio del cliente. Desde su portal puede revisar
+        solicitudes, inventario y consumo de horas de soporte.
+      </p>
+
+      <div className="about-points">
+        <div>
+          <CheckCircle2 size={21} />
+          Registro y seguimiento de tickets
+        </div>
+
+        <div>
+          <CheckCircle2 size={21} />
+          Horas utilizadas y disponibles
+        </div>
+
+        <div>
+          <CheckCircle2 size={21} />
+          Inventario de equipos
+        </div>
+
+        <div>
+          <CheckCircle2 size={21} />
+          Historial y reportes de atención
+        </div>
+      </div>
+
+      <div className="servicedesk-actions">
+        <a
+          className="button button-primary"
+          href={SERVICE_DESK_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Acceder a ServiceDesk
+          <ArrowRight size={19} />
+        </a>
+
+        <button
+          className="button button-secondary"
+          type="button"
+          onClick={openEvaluation}
+        >
+          Quiero contratar soporte
+        </button>
+      </div>
+    </div>
+
+    <div className="servicedesk-showcase">
+      <div className="servicedesk-demo">
+        <div className="servicedesk-demo-top">
+          <div>
+            <span className="servicedesk-demo-label">
+              A&B Proveedores
+            </span>
+
+            <strong>ServiceDesk</strong>
+          </div>
+
+          <span className="servicedesk-demo-status">
+            Convenio activo
+          </span>
+        </div>
+
+        <div className="servicedesk-demo-title">
+          <span>Estado del convenio</span>
+          <strong>
+            Control de horas en tiempo real
+          </strong>
+        </div>
+
+        <div className="servicedesk-hours">
+          <div>
+            <span>Horas incluidas</span>
+            <strong>20</strong>
+          </div>
+
+          <div>
+            <span>Horas consumidas</span>
+            <strong>3</strong>
+          </div>
+
+          <div>
+            <span>Horas disponibles</span>
+            <strong>17</strong>
+          </div>
+        </div>
+
+        <div className="servicedesk-progress">
+          <div className="servicedesk-progress-head">
+            <span>Consumo mensual</span>
+            <strong>15%</strong>
+          </div>
+
+          <div className="servicedesk-progress-track">
+            <span />
+          </div>
+        </div>
+
+        <div className="servicedesk-demo-message">
+          <CheckCircle2 size={18} />
+
+          <div>
+            <strong>Dentro de convenio</strong>
+            <span>
+              Quedan 17 horas disponibles.
+            </span>
+          </div>
+        </div>
+
+        <div className="servicedesk-tickets">
+          <div className="servicedesk-tickets-head">
+            <strong>Últimos tickets</strong>
+            <span>Seguimiento técnico</span>
+          </div>
+
+          <div className="servicedesk-ticket-row">
+            <span>TK00031-2026</span>
+            <strong>
+              Configuración de estación de trabajo
+            </strong>
+            <em>Resuelto</em>
+          </div>
+
+          <div className="servicedesk-ticket-row">
+            <span>TK00030-2026</span>
+            <strong>
+              Revisión de conectividad
+            </strong>
+            <em>Resuelto</em>
+          </div>
+
+          <div className="servicedesk-ticket-row">
+            <span>TK00029-2026</span>
+            <strong>
+              Soporte de aplicación
+            </strong>
+            <em>Resuelto</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
         <section className="cases-section">
           <div className="section cases-inner">
             <div className="section-heading">
@@ -822,17 +1136,18 @@ function App() {
         >
           <div className="section solutions-inner">
             <div className="section-heading section-heading-left">
-              <span>Soluciones por industria</span>
+              <span>Soluciones para su operación</span>
 
               <h2>
-                Conocemos los entornos donde una interrupción sí
-                importa.
+                Resolvemos los problemas tecnológicos que afectan la
+                continuidad de su empresa.
               </h2>
 
               <p>
-                Trabajamos con organizaciones que necesitan
-                estabilidad, trazabilidad, protección de datos y
-                respuesta técnica oportuna.
+                Desde problemas de conectividad hasta administración de
+                servidores, respaldos y soporte técnico, diseñamos
+                soluciones según las necesidades reales de cada
+                organización.
               </p>
             </div>
 
@@ -859,59 +1174,65 @@ function App() {
         </section>
 
         <section
-          className="about-section section"
-          id="empresa"
-        >
-          <div className="about-card">
-            <div className="about-content">
-              <span className="section-label">
-                A&B Proveedores Integrales
-              </span>
+  className="about-section section"
+  id="empresa"
+>
+  <div className="about-card">
+    <div className="about-content">
+      <span className="section-label">
+        A&B Proveedores Integrales
+      </span>
 
-              <h2>
-                Ingeniería aplicada a necesidades reales.
-              </h2>
+      <h2>
+        Más que soporte técnico: nos hacemos cargo de la operación.
+      </h2>
 
-              <p>
-                No ofrecemos paquetes genéricos. Revisamos la
-                operación, identificamos los riesgos y proponemos
-                soluciones que se puedan mantener, documentar y
-                escalar.
-              </p>
+      <p>
+        Trabajamos con empresas que necesitan mantener su
+        infraestructura tecnológica disponible, ordenada y bajo
+        control. Analizamos cada entorno antes de intervenir y
+        proponemos soluciones que puedan mantenerse en el tiempo.
+      </p>
 
-              <div className="about-points">
-                <div>
-                  <CheckCircle2 size={21} />
-                  Diagnóstico técnico
-                </div>
+      <div className="about-points">
+        <div>
+          <CheckCircle2 size={21} />
+          Diagnóstico antes de implementar
+        </div>
 
-                <div>
-                  <CheckCircle2 size={21} />
-                  Implementación controlada
-                </div>
+        <div>
+          <CheckCircle2 size={21} />
+          Soluciones según la infraestructura real
+        </div>
 
-                <div>
-                  <CheckCircle2 size={21} />
-                  Documentación y seguimiento
-                </div>
+        <div>
+          <CheckCircle2 size={21} />
+          Documentación y trazabilidad
+        </div>
 
-                <div>
-                  <CheckCircle2 size={21} />
-                  Soporte posterior
-                </div>
-              </div>
-            </div>
+        <div>
+          <CheckCircle2 size={21} />
+          Acompañamiento después de la implementación
+        </div>
+      </div>
+    </div>
 
-            <div className="about-quote">
-              <p>
-                “La tecnología debe sostener la operación sin
-                transformarse en un problema adicional.”
-              </p>
+    <div className="about-quote">
+      <span className="section-label">
+        Nuestra forma de trabajar
+      </span>
 
-              <span>A&B Proveedores Integrales SpA</span>
-            </div>
-          </div>
-        </section>
+      <p>
+        “No buscamos solamente resolver una incidencia. Buscamos
+        entender por qué ocurrió, reducir la posibilidad de que se
+        repita y dejar la infraestructura mejor de como la
+        encontramos.”
+      </p>
+
+      <span>A&B Proveedores Integrales SpA</span>
+    </div>
+  </div>
+</section>
 
         <section
           className="support-section section"
@@ -922,12 +1243,13 @@ function App() {
               <span>Clientes A&B</span>
 
               <h2>
-                ¿Ya tiene acceso a nuestra Mesa de Ayuda?
+                ¿Ya tiene acceso a A&B ServiceDesk?
               </h2>
 
               <p>
-                Ingrese para registrar requerimientos, adjuntar
-                antecedentes y revisar el estado de sus solicitudes.
+                Ingrese para registrar requerimientos, revisar sus
+                tickets, consultar el inventario y controlar el consumo
+                de horas de su convenio.
               </p>
 
               <a
@@ -936,7 +1258,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Abrir Mesa de Ayuda
+                Abrir A&B ServiceDesk
                 <ArrowRight size={20} />
               </a>
             </article>
@@ -971,13 +1293,14 @@ function App() {
             <span>Contacto</span>
 
             <h2>
-              Conversemos sobre su infraestructura tecnológica.
-            </h2>
+  ¿Necesita ordenar, mejorar o administrar su infraestructura TI?
+</h2>
 
-            <p>
-              Cuéntenos qué necesita resolver y evaluaremos el alcance
-              técnico más adecuado para su empresa.
-            </p>
+<p>
+  Cuéntenos qué necesita resolver. Evaluaremos su situación y
+  definiremos una solución técnica acorde a su infraestructura,
+  operación y presupuesto.
+</p>
           </div>
 
           <div className="contact-grid">
@@ -993,18 +1316,14 @@ function App() {
               </div>
             </a>
 
-            <a
-  className="contact-card"
-  href="tel:+569XXXXXXXX"
-  aria-label="Llamar a A&B Proveedores Integrales"
->
+            <div className="contact-card">
   <Phone size={25} />
 
   <div>
     <span>Atención comercial</span>
-    <strong>+56 9 8674 7101</strong>
+    <strong>Contacto vía WhatsApp</strong>
   </div>
-</a>
+</div>
 
             <div className="contact-card">
               <MapPin size={25} />
@@ -1042,6 +1361,8 @@ function App() {
 
           <div className="footer-links">
             <a href="#servicios">Servicios</a>
+            <a href="#planes">Planes</a>
+            <a href="#servicedesk">ServiceDesk</a>
             <a href="#soluciones">Soluciones</a>
             <a href="#contacto">Contacto</a>
             <a href="#acceso-soporte">Soporte</a>

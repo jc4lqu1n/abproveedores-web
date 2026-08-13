@@ -1922,3 +1922,329 @@ a.contact-card:hover {
     transform: rotate(360deg);
   }
 }
+
+.plan-card {
+  position: relative;
+}
+
+.plan-card-featured {
+  border-color: rgba(212, 175, 55, 0.72);
+  box-shadow:
+    0 0 0 1px rgba(212, 175, 55, 0.1),
+    0 24px 58px rgba(0, 0, 0, 0.3);
+}
+
+.plan-card-featured::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    145deg,
+    rgba(212, 175, 55, 0.08),
+    transparent 42%
+  );
+  content: '';
+  pointer-events: none;
+}
+
+.plan-recommended {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+
+  padding: 7px 11px;
+  border-radius: 999px;
+
+  background: var(--gold);
+  color: #17120b;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.plan-card-featured:hover {
+  border-color: rgba(242, 214, 117, 0.95);
+}
+
+/* =========================================================
+   SERVICEDESK SHOWCASE
+========================================================= */
+
+.servicedesk-layout {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.servicedesk-copy h2 {
+  margin: 14px 0 18px;
+  font-size: clamp(34px, 4.8vw, 53px);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+.servicedesk-copy > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.servicedesk-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.servicedesk-showcase {
+  width: 100%;
+}
+
+.servicedesk-demo {
+  position: relative;
+  overflow: hidden;
+  padding: 26px;
+  border: 1px solid rgba(97, 166, 255, 0.22);
+  border-radius: 26px;
+
+  background:
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(47, 128, 237, 0.15),
+      transparent 32%
+    ),
+    rgba(7, 18, 37, 0.94);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.32);
+}
+
+.servicedesk-demo-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.servicedesk-demo-top > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.servicedesk-demo-label {
+  color: var(--blue-light);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.servicedesk-demo-top strong {
+  font-size: 20px;
+}
+
+.servicedesk-demo-status {
+  padding: 7px 11px;
+  border: 1px solid rgba(53, 208, 127, 0.24);
+  border-radius: 999px;
+  background: rgba(53, 208, 127, 0.08);
+  color: var(--success);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.servicedesk-demo-title {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 22px;
+}
+
+.servicedesk-demo-title span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.servicedesk-demo-title strong {
+  font-size: 18px;
+}
+
+.servicedesk-hours {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.servicedesk-hours > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 16px;
+  border: 1px solid rgba(97, 166, 255, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.servicedesk-hours span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.servicedesk-hours strong {
+  font-size: 27px;
+  line-height: 1;
+}
+
+.servicedesk-hours > div:last-child strong {
+  color: var(--success);
+}
+
+.servicedesk-progress {
+  margin-top: 18px;
+}
+
+.servicedesk-progress-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.servicedesk-progress-head strong {
+  color: var(--text);
+}
+
+.servicedesk-progress-track {
+  overflow: hidden;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.servicedesk-progress-track span {
+  display: block;
+  width: 15%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--blue);
+}
+
+.servicedesk-demo-message {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 18px;
+  padding: 13px 15px;
+  border: 1px solid rgba(53, 208, 127, 0.18);
+  border-radius: 14px;
+  background: rgba(53, 208, 127, 0.06);
+  color: var(--success);
+}
+
+.servicedesk-demo-message > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.servicedesk-demo-message strong {
+  color: var(--text);
+  font-size: 12px;
+}
+
+.servicedesk-demo-message span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.servicedesk-tickets {
+  margin-top: 22px;
+}
+
+.servicedesk-tickets-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.servicedesk-tickets-head strong {
+  font-size: 13px;
+}
+
+.servicedesk-tickets-head span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.servicedesk-ticket-row {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-top: 1px solid var(--border);
+}
+
+.servicedesk-ticket-row > span {
+  color: var(--blue-light);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.servicedesk-ticket-row > strong {
+  overflow: hidden;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.servicedesk-ticket-row em {
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(53, 208, 127, 0.08);
+  color: var(--success);
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+@media (max-width: 1000px) {
+  .servicedesk-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .servicedesk-demo {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .servicedesk-hours {
+    grid-template-columns: 1fr;
+  }
+
+  .servicedesk-actions .button {
+    width: 100%;
+  }
+
+  .servicedesk-ticket-row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .servicedesk-ticket-row > strong {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    white-space: normal;
+  }
+}
