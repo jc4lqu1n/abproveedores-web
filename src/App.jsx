@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 
 import EvaluationModal from './components/EvaluationModal/EvaluationModal';
+import AssistantWidget from './components/Assistant/AssistantWidget';
 
 const SERVICE_DESK_URL = 'https://ab-servicedesk.vercel.app';
 
@@ -1174,65 +1175,59 @@ function App() {
         </section>
 
         <section
-  className="about-section section"
-  id="empresa"
->
-  <div className="about-card">
-    <div className="about-content">
-      <span className="section-label">
-        A&B Proveedores Integrales
-      </span>
+          className="about-section section"
+          id="empresa"
+        >
+          <div className="about-card">
+            <div className="about-content">
+              <span className="section-label">
+                A&B Proveedores Integrales
+              </span>
 
-      <h2>
-        Más que soporte técnico: nos hacemos cargo de la operación.
-      </h2>
+              <h2>
+                Ingeniería aplicada a necesidades reales.
+              </h2>
 
-      <p>
-        Trabajamos con empresas que necesitan mantener su
-        infraestructura tecnológica disponible, ordenada y bajo
-        control. Analizamos cada entorno antes de intervenir y
-        proponemos soluciones que puedan mantenerse en el tiempo.
-      </p>
+              <p>
+                No ofrecemos paquetes genéricos. Revisamos la
+                operación, identificamos los riesgos y proponemos
+                soluciones que se puedan mantener, documentar y
+                escalar.
+              </p>
 
-      <div className="about-points">
-        <div>
-          <CheckCircle2 size={21} />
-          Diagnóstico antes de implementar
-        </div>
+              <div className="about-points">
+                <div>
+                  <CheckCircle2 size={21} />
+                  Diagnóstico técnico
+                </div>
 
-        <div>
-          <CheckCircle2 size={21} />
-          Soluciones según la infraestructura real
-        </div>
+                <div>
+                  <CheckCircle2 size={21} />
+                  Implementación controlada
+                </div>
 
-        <div>
-          <CheckCircle2 size={21} />
-          Documentación y trazabilidad
-        </div>
+                <div>
+                  <CheckCircle2 size={21} />
+                  Documentación y seguimiento
+                </div>
 
-        <div>
-          <CheckCircle2 size={21} />
-          Acompañamiento después de la implementación
-        </div>
-      </div>
-    </div>
+                <div>
+                  <CheckCircle2 size={21} />
+                  Soporte posterior
+                </div>
+              </div>
+            </div>
 
-    <div className="about-quote">
-      <span className="section-label">
-        Nuestra forma de trabajar
-      </span>
+            <div className="about-quote">
+              <p>
+                “La tecnología debe sostener la operación sin
+                transformarse en un problema adicional.”
+              </p>
 
-      <p>
-        “No buscamos solamente resolver una incidencia. Buscamos
-        entender por qué ocurrió, reducir la posibilidad de que se
-        repita y dejar la infraestructura mejor de como la
-        encontramos.”
-      </p>
-
-      <span>A&B Proveedores Integrales SpA</span>
-    </div>
-  </div>
-</section>
+              <span>A&B Proveedores Integrales SpA</span>
+            </div>
+          </div>
+        </section>
 
         <section
           className="support-section section"
@@ -1293,14 +1288,13 @@ function App() {
             <span>Contacto</span>
 
             <h2>
-  ¿Necesita ordenar, mejorar o administrar su infraestructura TI?
-</h2>
+              Conversemos sobre su infraestructura tecnológica.
+            </h2>
 
-<p>
-  Cuéntenos qué necesita resolver. Evaluaremos su situación y
-  definiremos una solución técnica acorde a su infraestructura,
-  operación y presupuesto.
-</p>
+            <p>
+              Cuéntenos qué necesita resolver y evaluaremos el alcance
+              técnico más adecuado para su empresa.
+            </p>
           </div>
 
           <div className="contact-grid">
@@ -1385,6 +1379,10 @@ function App() {
   <FaWhatsapp size={24} />
   <span>WhatsApp</span>
 </a>
+
+      <AssistantWidget
+        onOpenEvaluation={openEvaluation}
+      />
 
       <EvaluationModal
         isOpen={evaluationOpen}

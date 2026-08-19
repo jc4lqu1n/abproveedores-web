@@ -903,7 +903,7 @@ a.contact-card:hover {
   position: fixed;
   z-index: 40;
   right: 24px;
-  bottom: 24px;
+  bottom: 110px;
   display: flex;
   align-items: center;
   gap: 9px;
@@ -1692,7 +1692,7 @@ a.contact-card:hover {
 
   .floating-support {
     right: 15px;
-    bottom: 15px;
+    bottom: 108px;
     width: 52px;
     padding: 0;
     justify-content: center;
