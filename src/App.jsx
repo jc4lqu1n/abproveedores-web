@@ -588,6 +588,31 @@ function App() {
           </motion.div>
         </section>
 
+        <section className="experience-section section" aria-labelledby="experience-heading">
+          <div className="experience-intro">
+            <div>
+              <span className="experience-kicker">TECNOLOGÍA QUE SE VE EN TERRENO</span>
+              <h2 id="experience-heading">Soluciones reales para desafíos cotidianos.</h2>
+            </div>
+            <p>Desde una red confiable hasta la continuidad de sus servidores: trabajamos para que la tecnología acompañe el crecimiento de su empresa.</p>
+          </div>
+          <div className="experience-grid">
+            <a className="experience-card experience-network" href="#servicios">
+              <span className="experience-card-tag">01 / CONECTIVIDAD</span>
+              <div><Network size={25} /><h3>Redes que conectan su operación</h3><span>Conocer soluciones <ArrowRight size={17} /></span></div>
+            </a>
+            <a className="experience-card experience-infrastructure" href="#servicios">
+              <span className="experience-card-tag">02 / INFRAESTRUCTURA</span>
+              <div><Server size={25} /><h3>Infraestructura preparada para crecer</h3><span>Conocer soluciones <ArrowRight size={17} /></span></div>
+            </a>
+            <a className="experience-card experience-support" href="#planes">
+              <span className="experience-card-tag">03 / SOPORTE</span>
+              <div><Headphones size={25} /><h3>Personas que responden cuando importa</h3><span>Ver planes de soporte <ArrowRight size={17} /></span></div>
+            </a>
+          </div>
+          <p className="experience-photo-note">Fotografías ilustrativas. Próximamente incorporaremos registros autorizados de nuestros trabajos.</p>
+        </section>
+
         <section
           className="technology-strip section"
           aria-label="Tecnologías con las que trabajamos"
