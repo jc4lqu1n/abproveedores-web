@@ -340,6 +340,7 @@ const workProcess = [
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [evaluationOpen, setEvaluationOpen] = useState(false);
+  const [contactNeed, setContactNeed] = useState("Soporte informático");
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -784,7 +785,7 @@ function App() {
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="services-grid plans-modern-grid">
             {supportPlans.map((plan, index) => {
               const Icon = plan.icon;
 
@@ -809,7 +810,7 @@ function App() {
 >
   {plan.title === 'Plan Preventivo' && (
     <span className="plan-recommended">
-      Recomendado
+      Ideal para comenzar
     </span>
   )}
 
@@ -833,7 +834,7 @@ function App() {
                   </ul>
 
                   <button
-                    className="button button-secondary"
+                    className="button button-secondary plan-cta"
                     type="button"
                     onClick={openEvaluation}
                   >
@@ -1317,6 +1318,45 @@ function App() {
             </p>
           </div>
 
+          <div className="contact-action-panel">
+            <div>
+              <span className="contact-action-kicker">ATENCIÓN COMERCIAL</span>
+              <h3>¿En qué podemos ayudarle?</h3>
+              <p>Seleccione el área de interés y envíenos su consulta por WhatsApp. También puede solicitar una evaluación técnica.</p>
+              <div className="contact-need-options" role="group" aria-label="Área de interés">
+                {['Soporte informático', 'Redes y conectividad', 'Servidores e infraestructura', 'Ciberseguridad', 'Cloud y Microsoft 365', 'Evaluación integral'].map((need) => (
+                  <button
+                    key={need}
+                    type="button"
+                    className={`contact-need-option ${contactNeed === need ? 'contact-need-selected' : ''}`}
+                    aria-pressed={contactNeed === need}
+                    onClick={() => setContactNeed(need)}
+                  >
+                    {need}
+                  </button>
+                ))}
+              </div>
+              <div className="contact-action-buttons">
+                <a
+                  className="button button-primary"
+                  href={`https://wa.me/56986747101?text=${encodeURIComponent(`Hola, visité la web de A&B Proveedores y necesito información sobre: ${contactNeed}.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle size={19} /> Consultar por WhatsApp
+                </a>
+                <button className="button button-secondary" type="button" onClick={openEvaluation}>
+                  Solicitar evaluación <ArrowRight size={18} />
+                </button>
+              </div>
+            </div>
+            <div className="contact-action-aside">
+              <ShieldCheck size={29} />
+              <strong>Asesoría TI para empresas</strong>
+              <p>Diagnóstico, implementación y soporte con seguimiento técnico.</p>
+              <span>Atención presencial y remota · Región Metropolitana</span>
+            </div>
+          </div>
           <div className="contact-grid">
             <a
               className="contact-card"
