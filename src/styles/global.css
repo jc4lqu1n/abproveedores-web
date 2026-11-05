@@ -2248,3 +2248,26 @@ a.contact-card:hover {
     white-space: normal;
   }
 }
+
+/* Modernización visual 2026: sección editorial fotográfica */
+.experience-section { padding-top: 58px; padding-bottom: 66px; }
+.experience-intro { display:grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items:end; margin-bottom: 26px; }
+.experience-kicker { display:inline-block; margin-bottom: 15px; color:#58d9dc; font-size: 11px; font-weight:800; letter-spacing:.18em; }
+.experience-intro h2 { margin:0; max-width: 700px; font-size:clamp(29px,3.5vw,49px); line-height:1.13; letter-spacing:-.045em; }
+.experience-intro p { max-width:480px; margin:0 0 4px; color:var(--muted); line-height:1.85; }
+.experience-grid { display:grid; grid-template-columns:1.18fr 1fr 1fr; gap:17px; }
+.experience-card { position:relative; display:flex; flex-direction:column; justify-content:space-between; min-height:365px; overflow:hidden; isolation:isolate; padding:24px; border:1px solid rgba(255,255,255,.13); border-radius:25px; background-color:#12243a; background-position:center; background-size:cover; transition:transform .25s ease,border-color .25s ease; }
+.experience-card::before { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(180deg,rgba(5,13,28,.28) 0%,rgba(5,13,28,.4) 40%,rgba(5,13,28,.96) 100%); }
+.experience-card:hover { transform:translateY(-5px); border-color:rgba(88,217,220,.6); }
+.experience-network { background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1100&q=82'); }
+.experience-infrastructure { background-image:url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1000&q=82'); }
+.experience-support { background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=82'); }
+.experience-card-tag { align-self:flex-start; padding:9px 12px; border:1px solid rgba(255,255,255,.3); border-radius:999px; background:rgba(7,18,34,.5); color:#e8f9fc; font-size:10px; font-weight:800; letter-spacing:.09em; backdrop-filter:blur(8px); }
+.experience-card > div { display:flex; flex-direction:column; align-items:flex-start; gap:13px; }
+.experience-card > div > svg { color:#6ce4e4; }
+.experience-card h3 { max-width:310px; margin:0; color:#fff; font-size:clamp(22px,2vw,30px); line-height:1.2; letter-spacing:-.03em; }
+.experience-card > div > span { display:flex; align-items:center; gap:9px; color:#b9f7f6; font-size:13px; font-weight:750; }
+.experience-photo-note { margin:14px 0 0; color:var(--muted); font-size:11px; }
+@media(max-width:900px) { .experience-intro { grid-template-columns:1fr; gap:15px; } .experience-grid { grid-template-columns:1fr 1fr; } .experience-card:first-child { grid-column:1/-1; } }
+@media(max-width:600px) { .experience-section { padding-top:32px; padding-bottom:40px; } .experience-grid { grid-template-columns:1fr; } .experience-card:first-child { grid-column:auto; } .experience-card { min-height:300px; } }
+@media(prefers-reduced-motion:reduce) { .experience-card { transition:none; } }
