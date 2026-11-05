@@ -716,7 +716,7 @@ function App() {
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="services-grid services-grid-modern">
             {services.map((service, index) => {
               const Icon = service.icon;
 
