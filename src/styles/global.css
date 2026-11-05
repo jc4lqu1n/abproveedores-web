@@ -2298,3 +2298,32 @@ a.contact-card:hover {
 @media(max-width:1000px) { .services-grid-modern .service-card,.services-grid-modern .service-card:nth-child(-n+2) { grid-column:span 3; } }
 @media(max-width:650px) { .services-grid-modern { grid-template-columns:1fr; } .services-grid-modern .service-card,.services-grid-modern .service-card:nth-child(-n+2) { grid-column:1; min-height:390px; } }
 @media(prefers-reduced-motion:reduce) { .services-grid-modern .service-card { transition:none; } }
+
+/* Planes comerciales: jerarquía y comparación visual */
+.plans-modern-grid { align-items:stretch; gap:20px; }
+.plans-modern-grid .plan-card { position:relative; display:flex; flex-direction:column; min-height:480px; padding:28px; border:1px solid rgba(131,180,207,.26); border-radius:24px; background:linear-gradient(155deg,rgba(27,53,77,.7),rgba(10,23,41,.96)); transition:transform .22s ease,border-color .22s ease; }
+.plans-modern-grid .plan-card:hover { transform:translateY(-4px); border-color:rgba(111,223,219,.65); }
+.plans-modern-grid .plan-card-featured { border-color:rgba(104,224,220,.72); background:linear-gradient(155deg,rgba(18,71,83,.82),rgba(10,23,41,.96)); box-shadow:0 18px 48px rgba(5,20,32,.24); }
+.plans-modern-grid .plan-card h3 { margin-top:18px; font-size:clamp(23px,2vw,30px); letter-spacing:-.035em; }
+.plans-modern-grid .plan-card > strong { display:block; margin:6px 0 16px; font-size:clamp(20px,2vw,28px); color:#88e8e2; }
+.plans-modern-grid .plan-card p { line-height:1.65; }
+.plans-modern-grid .plan-card ul { margin-bottom:26px; }
+.plans-modern-grid .plan-cta { margin-top:auto; width:100%; justify-content:center; }
+.plans-modern-grid .plan-recommended { background:#70e0d9; color:#0b2630; border-radius:999px; font-weight:800; }
+.contact-action-panel { display:grid; grid-template-columns:minmax(0,1.65fr) minmax(220px,.75fr); gap:32px; padding:clamp(24px,4vw,45px); margin-bottom:24px; border:1px solid rgba(116,215,216,.36); border-radius:26px; background:linear-gradient(125deg,#142d43,#091728); }
+.contact-action-kicker { color:#85e4df; font-size:11px; font-weight:800; letter-spacing:.14em; }
+.contact-action-panel h3 { margin:12px 0; color:#fff; font-size:clamp(25px,3vw,36px); letter-spacing:-.035em; }
+.contact-action-panel p { max-width:620px; color:#c1d3e0; line-height:1.7; }
+.contact-need-options { display:flex; flex-wrap:wrap; gap:9px; margin:24px 0; }
+.contact-need-option { padding:10px 13px; border:1px solid rgba(163,197,219,.34); border-radius:999px; background:rgba(255,255,255,.05); color:#e0edf4; font-size:12px; font-weight:650; cursor:pointer; }
+.contact-need-option:hover,.contact-need-selected { border-color:#83e9df; background:rgba(110,225,218,.2); color:#fff; }
+.contact-need-option:focus-visible { outline:2px solid #8dece6; outline-offset:3px; }
+.contact-action-buttons { display:flex; flex-wrap:wrap; gap:12px; }
+.contact-action-buttons .button { display:inline-flex; align-items:center; gap:8px; }
+.contact-action-aside { display:flex; flex-direction:column; align-self:stretch; justify-content:center; gap:14px; padding:24px; border:1px solid rgba(166,213,230,.18); border-radius:20px; background:rgba(255,255,255,.045); }
+.contact-action-aside svg { color:#8be6df; }
+.contact-action-aside strong { color:#fff; font-size:21px; }
+.contact-action-aside span { color:#9dbdca; font-size:12px; }
+@media(max-width:850px) { .contact-action-panel { grid-template-columns:1fr; } .contact-action-aside { padding:20px; } }
+@media(max-width:600px) { .plans-modern-grid .plan-card { min-height:auto; padding:24px; } .contact-action-buttons { flex-direction:column; } .contact-action-buttons .button { justify-content:center; width:100%; } }
+@media(prefers-reduced-motion:reduce) { .plans-modern-grid .plan-card { transition:none; } }
