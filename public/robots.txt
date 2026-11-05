@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# El sitemap se añadirá al configurar el dominio definitivo.
