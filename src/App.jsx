@@ -445,22 +445,13 @@ function App() {
           >
             <div className="eyebrow">
               <span className="eyebrow-dot" />
-              Ingeniería en infraestructura tecnológica
+              Tecnología confiable, personas que responden
             </div>
 
-            <h1>
-              Protegemos la infraestructura
-              <span>
-                {' '}
-                que mantiene su negocio funcionando.
-              </span>
-            </h1>
+            <h1>Su empresa avanza.<span> Nosotros hacemos que su tecnología responda.</span></h1>
 
             <p className="hero-description">
-              Diseñamos, implementamos y administramos
-              infraestructura TI, redes, servidores, cloud y
-              ciberseguridad para clínicas, notarías y empresas que
-              necesitan continuidad operacional.
+              Redes estables, servidores protegidos y soporte cercano para que su equipo trabaje sin interrupciones. Diseñamos soluciones TI adaptadas a cada empresa.
             </p>
 
             <div className="hero-specialties">
@@ -507,6 +498,16 @@ function App() {
             </div>
           </motion.div>
 
+          <div className="hero-media-wrap">
+            <div className="hero-media" role="img" aria-label="Fotografía ilustrativa de infraestructura tecnológica">
+              <div className="hero-media-shade" />
+              <span className="hero-media-top">INFRAESTRUCTURA · REDES · SEGURIDAD</span>
+              <div className="hero-media-bottom">
+                <strong>Tecnología para seguir creciendo.</strong>
+                <p>Soluciones integradas con atención humana y seguimiento documentado.</p>
+              </div>
+            </div>
+          </div>
           <motion.div
             className="hero-panel ecosystem-panel"
             initial={{ opacity: 0, scale: 0.94 }}
