@@ -369,7 +369,7 @@ function App() {
           onClick={closeMenu}
           aria-label="Ir al inicio de A&B Proveedores Integrales SpA"
         >
-          <img loading="lazy" decoding="async"
+          <img loading="eager" decoding="async"
             className="brand-logo"
             src="/images/logo-ab.png"
             alt="A&B Proveedores Integrales SpA"
