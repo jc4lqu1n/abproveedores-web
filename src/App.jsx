@@ -369,7 +369,7 @@ function App() {
           onClick={closeMenu}
           aria-label="Ir al inicio de A&B Proveedores Integrales SpA"
         >
-          <img
+          <img loading="lazy" decoding="async"
             className="brand-logo"
             src="/images/logo-ab.png"
             alt="A&B Proveedores Integrales SpA"
@@ -1396,7 +1396,7 @@ function App() {
       <footer className="footer">
         <div className="footer-inner">
           <div className="footer-brand">
-            <img
+            <img loading="lazy" decoding="async"
               className="footer-logo"
               src="/images/logo-ab.png"
               alt="A&B Proveedores Integrales SpA"
