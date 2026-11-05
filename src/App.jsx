@@ -409,6 +409,10 @@ function App() {
             Servicios
           </a>
 
+          <a href="#proyectos" onClick={closeMenu}>
+            En acción
+          </a>
+
           <a href="#planes" onClick={closeMenu}>
             Planes
           </a>
@@ -579,13 +583,13 @@ function App() {
           </motion.div>
         </section>
 
-        <section className="experience-section section" aria-labelledby="experience-heading">
+        <section className="experience-section section" id="proyectos" aria-labelledby="experience-heading">
           <div className="experience-intro">
             <div>
-              <span className="experience-kicker">TECNOLOGÍA QUE SE VE EN TERRENO</span>
-              <h2 id="experience-heading">Soluciones reales para desafíos cotidianos.</h2>
+              <span className="experience-kicker">A&B EN ACCIÓN</span>
+              <h2 id="experience-heading">Así transformamos los desafíos tecnológicos en soluciones.</h2>
             </div>
-            <p>Desde una red confiable hasta la continuidad de sus servidores: trabajamos para que la tecnología acompañe el crecimiento de su empresa.</p>
+            <p>Conozca nuestras áreas de trabajo en terreno: conectividad, infraestructura y soporte continuo. Pronto compartiremos fotografías autorizadas de instalaciones y proyectos.</p>
           </div>
           <div className="experience-grid">
             <a className="experience-card experience-network" href="#servicios">
@@ -601,7 +605,7 @@ function App() {
               <div><Headphones size={25} /><h3>Personas que responden cuando importa</h3><span>Ver planes de soporte <ArrowRight size={17} /></span></div>
             </a>
           </div>
-          <p className="experience-photo-note">Fotografías ilustrativas. Próximamente incorporaremos registros autorizados de nuestros trabajos.</p>
+          <p className="experience-photo-note">Imágenes referenciales, no fotografías de clientes ni de proyectos ejecutados por A&B.</p>
         </section>
 
         <section
@@ -1371,6 +1375,7 @@ function App() {
 
           <div className="footer-links">
             <a href="#servicios">Servicios</a>
+            <a href="#proyectos">En acción</a>
             <a href="#planes">Planes</a>
             <a href="#servicedesk">ServiceDesk</a>
             <a href="#soluciones">Soluciones</a>
