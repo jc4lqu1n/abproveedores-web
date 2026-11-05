@@ -498,16 +498,6 @@ function App() {
             </div>
           </motion.div>
 
-          <div className="hero-media-wrap">
-            <div className="hero-media" role="img" aria-label="Fotografía ilustrativa de infraestructura tecnológica">
-              <div className="hero-media-shade" />
-              <span className="hero-media-top">INFRAESTRUCTURA · REDES · SEGURIDAD</span>
-              <div className="hero-media-bottom">
-                <strong>Tecnología para seguir creciendo.</strong>
-                <p>Soluciones integradas con atención humana y seguimiento documentado.</p>
-              </div>
-            </div>
-          </div>
           <motion.div
             className="hero-panel ecosystem-panel"
             initial={{ opacity: 0, scale: 0.94 }}
