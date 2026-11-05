@@ -2271,3 +2271,10 @@ a.contact-card:hover {
 @media(max-width:900px) { .experience-intro { grid-template-columns:1fr; gap:15px; } .experience-grid { grid-template-columns:1fr 1fr; } .experience-card:first-child { grid-column:1/-1; } }
 @media(max-width:600px) { .experience-section { padding-top:32px; padding-bottom:40px; } .experience-grid { grid-template-columns:1fr; } .experience-card:first-child { grid-column:auto; } .experience-card { min-height:300px; } }
 @media(prefers-reduced-motion:reduce) { .experience-card { transition:none; } }
+
+/* Hero: restored interactive ecosystem with resilient visual background */
+.hero > .ecosystem-panel { display:block; min-width:0; }
+.hero .ecosystem-panel { border-color:rgba(105,198,226,.26); }
+.hero .ecosystem-panel::after { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background:linear-gradient(180deg,rgba(6,13,29,.94),rgba(6,13,29,.88)),url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1100&q=75') center/cover; opacity:.22; }
+.hero .ecosystem-panel .panel-header,.hero .ecosystem-panel .panel-bottom,.hero .ecosystem-panel .ecosystem-visual { position:relative; z-index:2; }
+@media(max-width:1000px) { .hero .ecosystem-panel { max-width:750px; width:100%; margin-inline:auto; } }
