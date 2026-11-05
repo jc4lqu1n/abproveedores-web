@@ -2278,3 +2278,23 @@ a.contact-card:hover {
 .hero .ecosystem-panel::after { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background:linear-gradient(180deg,rgba(6,13,29,.94),rgba(6,13,29,.88)),url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1100&q=75') center/cover; opacity:.22; }
 .hero .ecosystem-panel .panel-header,.hero .ecosystem-panel .panel-bottom,.hero .ecosystem-panel .ecosystem-visual { position:relative; z-index:2; }
 @media(max-width:1000px) { .hero .ecosystem-panel { max-width:750px; width:100%; margin-inline:auto; } }
+
+/* Rediseño de seis servicios; no afecta las tarjetas de planes */
+.services-grid-modern { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:18px; }
+.services-grid-modern .service-card { position:relative; grid-column:span 2; min-height:440px; overflow:hidden; isolation:isolate; border:1px solid rgba(125,182,212,.27); border-radius:24px; background:#0d192c; transition:transform .22s ease,border-color .22s ease; }
+.services-grid-modern .service-card:nth-child(-n+2) { grid-column:span 3; }
+.services-grid-modern .service-card::before { content:""; position:absolute; inset:0 0 auto; height:65%; z-index:-2; background-position:center; background-size:cover; opacity:.5; }
+.services-grid-modern .service-card::after { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(180deg,rgba(7,18,34,.15),rgba(7,18,34,.68) 36%,#0d192c 76%); }
+.services-grid-modern .service-card:nth-child(1)::before { background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80'); }
+.services-grid-modern .service-card:nth-child(2)::before { background-image:url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1000&q=80'); }
+.services-grid-modern .service-card:nth-child(3)::before { background-image:url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=850&q=80'); }
+.services-grid-modern .service-card:nth-child(4)::before { background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=850&q=80'); }
+.services-grid-modern .service-card:nth-child(5)::before { background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=850&q=80'); }
+.services-grid-modern .service-card:nth-child(6)::before { background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=850&q=80'); }
+.services-grid-modern .service-card:hover { transform:translateY(-4px); border-color:rgba(100,225,220,.6); }
+.services-grid-modern .service-icon { position:relative; z-index:1; border-color:rgba(123,235,232,.4); background:rgba(5,20,34,.76); color:#80e7e7; }
+.services-grid-modern .service-card h3 { position:relative; margin-top:105px; font-size:clamp(23px,2.1vw,30px); letter-spacing:-.035em; }
+.services-grid-modern .service-card p,.services-grid-modern .service-card li { position:relative; }
+@media(max-width:1000px) { .services-grid-modern .service-card,.services-grid-modern .service-card:nth-child(-n+2) { grid-column:span 3; } }
+@media(max-width:650px) { .services-grid-modern { grid-template-columns:1fr; } .services-grid-modern .service-card,.services-grid-modern .service-card:nth-child(-n+2) { grid-column:1; min-height:390px; } }
+@media(prefers-reduced-motion:reduce) { .services-grid-modern .service-card { transition:none; } }
