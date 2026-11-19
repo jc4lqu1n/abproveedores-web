@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaWhatsapp } from "react-icons/fa";
 import {
@@ -29,6 +29,14 @@ import {
 import EvaluationModal from './components/EvaluationModal/EvaluationModal';
 import AssistantWidget from './components/Assistant/AssistantWidget';
 import CommercialPlatform from './components/CommercialPlatform/CommercialPlatform';
+
+const heroSlides = [
+  { eyebrow: 'INFRAESTRUCTURA', title: 'Servidores y virtualización', description: 'Infraestructura estable para operaciones críticas.', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85' },
+  { eyebrow: 'CONECTIVIDAD', title: 'Redes empresariales', description: 'Conectividad segura y preparada para crecer.', image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1400&q=85' },
+  { eyebrow: 'CIBERSEGURIDAD', title: 'Protección de tu información', description: 'Políticas, controles y continuidad operacional.', image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1400&q=85' },
+  { eyebrow: 'SOPORTE', title: 'Soporte TI administrado', description: 'Asistencia técnica con seguimiento documentado.', image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1400&q=85' },
+  { eyebrow: 'DESARROLLO', title: 'Software y automatización', description: 'Soluciones digitales que optimizan tus procesos.', image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85' },
+];
 
 const SERVICE_DESK_URL = 'https://ab-servicedesk.vercel.app';
 
@@ -340,6 +348,13 @@ const workProcess = [
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [heroSlide, setHeroSlide] = useState(0);
+  const [heroPaused, setHeroPaused] = useState(false);
+  useEffect(() => {
+    if (heroPaused) return undefined;
+    const timer = window.setInterval(() => setHeroSlide(current => (current + 1) % 6), 6500);
+    return () => window.clearInterval(timer);
+  }, [heroPaused]);
   const [evaluationOpen, setEvaluationOpen] = useState(false);
 
   const closeMenu = () => {
@@ -516,6 +531,8 @@ function App() {
             </div>
           </motion.div>
 
+          <div className="ab-hero-carousel" aria-label="Especialidades de A&B" onMouseEnter={() => setHeroPaused(true)} onMouseLeave={() => setHeroPaused(false)} onFocusCapture={() => setHeroPaused(true)} onBlurCapture={() => setHeroPaused(false)}>
+            {heroSlide === 0 ? (
           <motion.div
             className="hero-panel ecosystem-panel"
             initial={{ opacity: 0, scale: 0.94 }}
@@ -595,6 +612,23 @@ function App() {
               </div>
             </div>
           </motion.div>
+            ) : (
+              <div className="ab-hero-photo-slide" key={heroSlide}>
+                <img src={heroSlides[heroSlide - 1].image} alt={heroSlides[heroSlide - 1].title} />
+                <div className="ab-hero-photo-copy">
+                  <span>{heroSlides[heroSlide - 1].eyebrow}</span>
+                  <h2>{heroSlides[heroSlide - 1].title}</h2>
+                  <p>{heroSlides[heroSlide - 1].description}</p>
+                  <a href="#catalogo">Explorar soluciones <ArrowRight size={17}/></a>
+                </div>
+              </div>
+            )}
+            <button className="ab-hero-arrow prev" type="button" aria-label="Imagen anterior" onClick={() => setHeroSlide(current => (current + 5) % 6)}>‹</button>
+            <button className="ab-hero-arrow next" type="button" aria-label="Imagen siguiente" onClick={() => setHeroSlide(current => (current + 1) % 6)}>›</button>
+            <div className="ab-hero-dots" role="group" aria-label="Seleccionar imagen">
+              {Array.from({length: 6}, (_, i) => <button key={i} type="button" className={heroSlide === i ? 'active' : ''} aria-label={`Ver imagen ${i + 1} de 6`} aria-pressed={heroSlide === i} onClick={() => setHeroSlide(i)}/>)}
+            </div>
+          </div>
         </section>
 
         <CommercialPlatform />
