@@ -347,6 +347,8 @@ const workProcess = [
 ];
 
 function App() {
+  const requestedModule = new URLSearchParams(window.location.search).get('modulo') || 'inicio';
+  const activeModule = ['inicio','servicios','configurador','planes','soluciones','empresa','contacto','soporte'].includes(requestedModule) ? requestedModule : 'inicio';
   const [menuOpen, setMenuOpen] = useState(false);
   const [heroSlide, setHeroSlide] = useState(0);
   useEffect(() => {
@@ -378,7 +380,7 @@ function App() {
       <header className="navbar">
         <a
           className="brand"
-          href="#inicio"
+          href="/?modulo=inicio"
           onClick={closeMenu}
           aria-label="Ir al inicio de A&B Proveedores Integrales SpA"
         >
@@ -415,37 +417,25 @@ function App() {
             menuOpen ? 'nav-links-open' : ''
           }`}
         >
-          <a href="#inicio" onClick={closeMenu}>
-            Inicio
-          </a>
+          <a href="/?modulo=inicio" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Inicio</a>
 
-          <a href="#inicio" onClick={closeMenu}>
-            Servicios
-          </a>
+          <a href="/?modulo=servicios" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Servicios</a>
 
-          <a href="#configurador" onClick={closeMenu}>
-            Configura tu TI
-          </a>
+          <a href="/?modulo=configurador" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Configura tu TI</a>
 
-          <a href="#planes" onClick={closeMenu}>
-            Planes
-          </a>
+          <a href="/?modulo=planes" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Planes</a>
 
-          <a href="#soluciones" onClick={closeMenu}>
-            Soluciones
-          </a>
+          <a href="/?modulo=soluciones" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Soluciones</a>
 
-          <a href="#empresa" onClick={closeMenu}>
-            Empresa
-          </a>
+          <a href="/?modulo=empresa" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Empresa</a>
 
-          <a href="#contacto" onClick={closeMenu}>
-            Contacto
-          </a>
+          <a href="/?modulo=contacto" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Contacto</a>
 
           <a
             className="nav-support"
-            href="#acceso-soporte"
+            href="/?modulo=soporte"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={closeMenu}
           >
             Soporte
@@ -453,7 +443,7 @@ function App() {
         </nav>
       </header>
 
-      <main>
+      <main data-module={activeModule}>
         <section className="ab-showcase" id="inicio" aria-label="Soluciones tecnológicas A&B">
           <div className="ab-showcase-slide" key={heroSlide}>
             <img src={heroSlides[heroSlide].image} alt={heroSlides[heroSlide].title} />
@@ -462,7 +452,7 @@ function App() {
               <span>{heroSlides[heroSlide].eyebrow}</span>
               <h1>{heroSlides[heroSlide].title}</h1>
               <p>{heroSlides[heroSlide].description}</p>
-              <a className="ab-showcase-link" href="#configurador">Configurar mi solución <ArrowRight size={18}/></a>
+              <a className="ab-showcase-link" href="/?modulo=configurador" target="_blank" rel="noopener noreferrer">Configurar mi solución <ArrowRight size={18}/></a>
             </div>
           </div>
           <button type="button" className="ab-showcase-arrow left" aria-label="Anterior" onClick={() => setHeroSlide(i => (i + heroSlides.length - 1) % heroSlides.length)}>‹</button>
@@ -480,13 +470,13 @@ function App() {
           <div className="ab-intro-feature"><ShieldCheck size={17}/><div><strong>Soluciones a medida</strong><span>Evaluación según tus necesidades</span></div></div>
           <div className="ab-intro-actions">
             <button type="button" className="button button-primary" onClick={openEvaluation}>Solicitar evaluación <ArrowRight size={17}/></button>
-            <a className="button button-secondary" href="#acceso-soporte"><Headphones size={18}/> A&B ServiceDesk</a>
+            <a className="button button-secondary" href="/?modulo=soporte" target="_blank" rel="noopener noreferrer"><Headphones size={18}/> A&B ServiceDesk</a>
           </div>
         </section>
 
-        <CommercialPlatform hideCatalog />
+        <CommercialPlatform hideCatalog={activeModule !== "servicios"} hideConfigurator={activeModule === "servicios"} />
 
-        <details className="ab-expandable section"><summary>Conoce nuestras tecnologías y servicios en detalle</summary>
+        <details className="ab-expandable section" id="detalle-servicios"><summary>Conoce nuestras tecnologías y servicios en detalle</summary>
         <section
           className="technology-strip section"
           aria-label="Tecnologías con las que trabajamos"
