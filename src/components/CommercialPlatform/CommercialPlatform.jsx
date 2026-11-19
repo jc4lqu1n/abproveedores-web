@@ -10,6 +10,14 @@ const catalog = [
   { icon: ClipboardList, category: 'Desarrollo', title: 'Software y automatización', description: 'Aplicaciones web, sistemas internos, integraciones y automatización de procesos.', image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80' },
 ];
 
+const highlights = {
+  Infraestructura: { headline: 'Tu operación necesita una base tecnológica confiable.', description: 'Desde servidores y directorios corporativos hasta virtualización y respaldos, diseñamos soluciones ajustadas a tu empresa.', benefits: ['Servidores y entornos virtualizados', 'Gestión de usuarios y recursos', 'Respaldo y continuidad operacional'] },
+  Conectividad: { headline: 'Una red bien diseñada conecta todo tu negocio.', description: 'Fortalecemos la conectividad de tus equipos, oficinas y sedes para acompañar el crecimiento de tu empresa.', benefits: ['Redes cableadas y WiFi corporativo', 'VPN y conectividad entre sedes', 'Segmentación y organización de red'] },
+  Seguridad: { headline: 'La seguridad no debe depender de la suerte.', description: 'Evaluamos riesgos y proponemos controles para proteger accesos, información y servicios críticos.', benefits: ['Evaluación de controles', 'Políticas de acceso y protección', 'Respaldo y recuperación'] },
+  Soporte: { headline: 'Menos interrupciones. Más tiempo para trabajar.', description: 'Atención técnica, seguimiento de requerimientos y mantenimiento para que tus equipos sigan funcionando.', benefits: ['Atención remota y presencial', 'Mantenimiento preventivo', 'Seguimiento e inventario'] },
+  Desarrollo: { headline: 'Transforma procesos manuales en soluciones digitales.', description: 'Herramientas adaptadas a tu organización, desde aplicaciones internas hasta integraciones y automatización.', benefits: ['Aplicaciones web y sistemas internos', 'Automatización de tareas', 'Integraciones entre herramientas'] },
+};
+
 const fmt = new Intl.NumberFormat('es-CL');
 
 export default function CommercialPlatform({ hideCatalog = false, hideConfigurator = false }) {
@@ -44,6 +52,7 @@ export default function CommercialPlatform({ hideCatalog = false, hideConfigurat
         <div className="commercial-filters" role="group" aria-label="Filtrar soluciones por categoría">
           {categories.map(item => <button key={item} type="button" className={category === item ? 'commercial-filter active' : 'commercial-filter'} onClick={() => setCategory(item)} aria-pressed={category === item}>{item}</button>)}
         </div>
+        <div className={category === "Todos" ? "commercial-results" : "commercial-results commercial-results-focused"}>
         <div className="commercial-grid">
           {filtered.map(item => {
             const Icon = item.icon;
@@ -56,6 +65,14 @@ export default function CommercialPlatform({ hideCatalog = false, hideConfigurat
               <button type="button" onClick={() => requestQuote(item.title)}>Solicitar cotización <ArrowRight size={17}/></button>
             </article>;
           })}
+        </div>
+        {category !== "Todos" && <aside className="commercial-highlight" aria-live="polite">
+          <span className="commercial-highlight-kicker">SOLUCIONES A&B · {category.toUpperCase()}</span>
+          <h3>{highlights[category].headline}</h3>
+          <p>{highlights[category].description}</p>
+          <div className="commercial-highlight-benefits">{highlights[category].benefits.map(benefit => <div key={benefit}><CheckCircle2 size={19}/><span>{benefit}</span></div>)}</div>
+          <button type="button" onClick={() => requestQuote(catalog.find(item => item.category === category)?.title)}>Conversemos sobre tu proyecto <ArrowRight size={18}/></button>
+        </aside>}
         </div>
       </section>}
 
