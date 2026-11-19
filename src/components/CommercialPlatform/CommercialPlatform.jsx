@@ -12,7 +12,7 @@ const catalog = [
 
 const fmt = new Intl.NumberFormat('es-CL');
 
-export default function CommercialPlatform({ hideCatalog = false }) {
+export default function CommercialPlatform({ hideCatalog = false, hideConfigurator = false }) {
   const [category, setCategory] = useState('Todos');
   const [users, setUsers] = useState(25);
   const [sites, setSites] = useState(1);
@@ -59,7 +59,7 @@ export default function CommercialPlatform({ hideCatalog = false }) {
         </div>
       </section>}
 
-      <section className="commercial-section commercial-configurator section" id="configurador">
+      {!hideConfigurator && <section className="commercial-section commercial-configurator section" id="configurador">
         <div className="commercial-heading">
           <span>Configura tu solución TI</span>
           <h2>Cuéntanos cómo opera tu empresa.</h2>
@@ -86,7 +86,7 @@ export default function CommercialPlatform({ hideCatalog = false }) {
             <button type="button" onClick={() => requestQuote(null)}>Solicitar propuesta personalizada <ArrowRight size={18}/></button>
           </div>
         </div>
-      </section>
+      </section>}
     </div>
   );
 }
