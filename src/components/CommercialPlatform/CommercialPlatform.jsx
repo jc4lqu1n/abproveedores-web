@@ -3,11 +3,11 @@ import { ArrowRight, Calculator, CheckCircle2, ClipboardList, Monitor, Network, 
 import './CommercialPlatform.css';
 
 const catalog = [
-  { icon: Server, category: 'Infraestructura', title: 'Servidores y virtualización', description: 'Implementación de servidores, Active Directory, Proxmox y continuidad operacional.' },
-  { icon: Network, category: 'Conectividad', title: 'Redes empresariales', description: 'Cableado estructurado, WiFi corporativo, VPN y segmentación de redes.' },
-  { icon: ShieldCheck, category: 'Seguridad', title: 'Ciberseguridad administrada', description: 'Evaluaciones, políticas de seguridad, respaldos y protección de accesos.' },
-  { icon: Monitor, category: 'Soporte', title: 'Soporte TI por convenio', description: 'Atención remota y presencial, inventario, seguimiento y mantenimiento preventivo.' },
-  { icon: ClipboardList, category: 'Desarrollo', title: 'Software y automatización', description: 'Aplicaciones web, sistemas internos, integraciones y automatización de procesos.' },
+  { icon: Server, category: 'Infraestructura', title: 'Servidores y virtualización', description: 'Implementación de servidores, Active Directory, Proxmox y continuidad operacional.', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80' },
+  { icon: Network, category: 'Conectividad', title: 'Redes empresariales', description: 'Cableado estructurado, WiFi corporativo, VPN y segmentación de redes.', image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=900&q=80' },
+  { icon: ShieldCheck, category: 'Seguridad', title: 'Ciberseguridad administrada', description: 'Evaluaciones, políticas de seguridad, respaldos y protección de accesos.', image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=80' },
+  { icon: Monitor, category: 'Soporte', title: 'Soporte TI por convenio', description: 'Atención remota y presencial, inventario, seguimiento y mantenimiento preventivo.', image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=80' },
+  { icon: ClipboardList, category: 'Desarrollo', title: 'Software y automatización', description: 'Aplicaciones web, sistemas internos, integraciones y automatización de procesos.', image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80' },
 ];
 
 const fmt = new Intl.NumberFormat('es-CL');
@@ -48,6 +48,7 @@ export default function CommercialPlatform() {
           {filtered.map(item => {
             const Icon = item.icon;
             return <article className="commercial-card" key={item.title}>
+              <img className="commercial-card-photo" src={item.image} alt={`Imagen ilustrativa de ${item.title}`} loading="lazy" onError={event => { event.currentTarget.style.display = "none"; }} />
               <div className="commercial-card-icon"><Icon size={26}/></div>
               <span>{item.category}</span>
               <h3>{item.title}</h3>
