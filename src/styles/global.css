@@ -2248,3 +2248,19 @@ a.contact-card:hover {
     white-space: normal;
   }
 }
+/* Hero carousel: preserve original A&B headline and ecosystem panel */
+.ab-hero-carousel{position:relative;min-width:0;width:100%;height:100%;min-height:420px;display:flex;align-items:center;justify-content:center;isolation:isolate}
+.ab-hero-carousel>.hero-panel{width:100%;max-width:100%;margin:0}
+.ab-hero-photo-slide{position:relative;overflow:hidden;border-radius:22px;width:100%;min-height:420px;align-self:stretch;background:#08192c;border:1px solid rgba(114,161,193,.3);animation:abHeroEnter .55s ease both}
+.ab-hero-photo-slide>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ab-hero-photo-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,9,21,.96) 0%,rgba(2,9,21,.55) 48%,rgba(2,9,21,.08) 100%)}
+.ab-hero-photo-copy{position:absolute;z-index:1;left:36px;right:32px;bottom:66px;color:white}
+.ab-hero-photo-copy>span{color:#48dfd0;font-size:.75rem;font-weight:800;letter-spacing:.13em}
+.ab-hero-photo-copy h2{font-size:clamp(1.5rem,2.4vw,2.35rem);line-height:1.15;margin:10px 0}
+.ab-hero-photo-copy p{max-width:370px;line-height:1.5;color:#e1eaf2;margin:0 0 18px}
+.ab-hero-photo-copy a{display:inline-flex;align-items:center;gap:9px;color:#061d2a;background:#37c9bd;border-radius:9px;padding:10px 15px;font-weight:700;text-decoration:none}
+.ab-hero-arrow{position:absolute;z-index:3;top:46%;transform:translateY(-50%);height:38px;width:38px;border-radius:50%;background:rgba(2,12,28,.76);border:1px solid rgba(190,213,225,.5);color:white;font-size:28px;line-height:1;cursor:pointer}.ab-hero-arrow.prev{left:10px}.ab-hero-arrow.next{right:10px}
+.ab-hero-dots{position:absolute;z-index:3;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;background:rgba(2,12,28,.65);padding:8px 12px;border-radius:20px}.ab-hero-dots button{width:8px;height:8px;border:0;padding:0;border-radius:8px;background:#91a6b5;cursor:pointer}.ab-hero-dots button.active{width:27px;background:#3bd2c4}
+@keyframes abHeroEnter{from{opacity:.45;transform:scale(.99)}to{opacity:1;transform:scale(1)}}
+@media(max-width:900px){.ab-hero-carousel{min-height:380px}.ab-hero-photo-slide{min-height:380px}}@media(max-width:640px){.ab-hero-carousel{min-height:350px}.ab-hero-photo-slide{min-height:350px}.ab-hero-photo-copy{left:25px;right:25px;bottom:55px}.ab-hero-arrow{width:31px;height:31px;font-size:23px}.ab-hero-arrow.prev{left:5px}.ab-hero-arrow.next{right:5px}}
+@media(prefers-reduced-motion:reduce){.ab-hero-photo-slide{animation:none}}
