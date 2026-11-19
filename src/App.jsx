@@ -417,19 +417,19 @@ function App() {
             menuOpen ? 'nav-links-open' : ''
           }`}
         >
-          <a href="/?modulo=inicio" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Inicio</a>
+          <a href="/?modulo=inicio" onClick={closeMenu}>Inicio</a>
 
-          <a href="/?modulo=servicios" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Servicios</a>
+          <a href="/?modulo=servicios" onClick={closeMenu}>Servicios</a>
 
-          <a href="/?modulo=configurador" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Configura tu TI</a>
+          <a href="/?modulo=configurador" onClick={closeMenu}>Configura tu TI</a>
 
-          <a href="/?modulo=planes" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Planes</a>
+          <a href="/?modulo=planes" onClick={closeMenu}>Planes</a>
 
-          <a href="/?modulo=soluciones" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Soluciones</a>
+          <a href="/?modulo=soluciones" onClick={closeMenu}>Soluciones</a>
 
-          <a href="/?modulo=empresa" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Empresa</a>
+          <a href="/?modulo=empresa" onClick={closeMenu}>Empresa</a>
 
-          <a href="/?modulo=contacto" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Contacto</a>
+          <a href="/?modulo=contacto" onClick={closeMenu}>Contacto</a>
 
           <a
             className="nav-support"
@@ -452,7 +452,7 @@ function App() {
               <span>{heroSlides[heroSlide].eyebrow}</span>
               <h1>{heroSlides[heroSlide].title}</h1>
               <p>{heroSlides[heroSlide].description}</p>
-              <a className="ab-showcase-link" href="/?modulo=configurador" target="_blank" rel="noopener noreferrer">Configurar mi solución <ArrowRight size={18}/></a>
+              <a className="ab-showcase-link" href="/?modulo=configurador">Configurar mi solución <ArrowRight size={18}/></a>
             </div>
           </div>
           <button type="button" className="ab-showcase-arrow left" aria-label="Anterior" onClick={() => setHeroSlide(i => (i + heroSlides.length - 1) % heroSlides.length)}>‹</button>
@@ -470,13 +470,13 @@ function App() {
           <div className="ab-intro-feature"><ShieldCheck size={17}/><div><strong>Soluciones a medida</strong><span>Evaluación según tus necesidades</span></div></div>
           <div className="ab-intro-actions">
             <button type="button" className="button button-primary" onClick={openEvaluation}>Solicitar evaluación <ArrowRight size={17}/></button>
-            <a className="button button-secondary" href="/?modulo=soporte" target="_blank" rel="noopener noreferrer"><Headphones size={18}/> A&B ServiceDesk</a>
+            <a className="button button-secondary" href="/?modulo=soporte"><Headphones size={18}/> A&B ServiceDesk</a>
           </div>
         </section>
 
         <CommercialPlatform hideCatalog={activeModule !== "servicios"} hideConfigurator={activeModule === "servicios"} />
 
-        <details className="ab-expandable section" id="detalle-servicios"><summary>Conoce nuestras tecnologías y servicios en detalle</summary>
+        <>
         <section
           className="technology-strip section"
           aria-label="Tecnologías con las que trabajamos"
@@ -573,7 +573,7 @@ function App() {
 
         <section
           className="content-section section"
-          id="servicios"
+          id="detalle-servicios"
         >
           <div className="section-heading">
             <span>Servicios tecnológicos</span>
@@ -635,7 +635,7 @@ function App() {
           </div>
         </section>
 
-        </details>
+        </>
         <section
           className="content-section section"
           id="planes"
@@ -876,7 +876,7 @@ function App() {
   </div>
 </section>
 
-        <details className="ab-expandable section"><summary>Ver casos de experiencia y metodología de trabajo</summary>
+        <>
         <section className="cases-section">
           <div className="section cases-inner">
             <div className="section-heading">
@@ -1022,7 +1022,7 @@ function App() {
           </div>
         </section>
 
-        </details>
+        </>
         <section
           className="solutions-section"
           id="soluciones"
