@@ -2286,6 +2286,7 @@ a.contact-card:hover {
 main[data-module] > *{display:none!important}
 main[data-module="inicio"] > .ab-showcase,
 main[data-module="inicio"] > .ab-intro-bar,
+main[data-module="inicio"] > .ab-home-contact,
 main[data-module="servicios"] > .commercial-platform,
 main[data-module="servicios"] > .technology-strip,
 main[data-module="servicios"] > .integration-section,
@@ -2311,3 +2312,16 @@ main[data-module="servicios"] > .metrics,
 main[data-module="servicios"] > #detalle-servicios,
 main[data-module="soluciones"] > .cases-section,
 main[data-module="soluciones"] > .process-section{margin-top:28px}
+
+/* Keep fixed navigation from overlapping module headings and cards. */
+main[data-module]:not([data-module="inicio"]){padding-top:115px;min-height:calc(100vh - 180px)}
+.ab-home-contact{padding-top:26px!important;padding-bottom:32px!important}
+.ab-home-contact-heading{font-size:1rem;font-weight:750;margin-bottom:16px;color:#f4f8ff}
+.ab-home-contact .contact-card{padding:16px 18px;border-radius:13px}
+.ab-home-contact .contact-card span{font-size:.7rem}
+.ab-home-contact .contact-card strong{font-size:.85rem}
+.nav-links .ab-nav-contact{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0;white-space:nowrap}
+.nav-links .ab-nav-contact:hover{color:#f2c747}
+.footer-links .ab-footer-contact{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.footer-links .ab-footer-contact:hover{color:#f2c747}
+@media(max-width:640px){main[data-module]:not([data-module="inicio"]){padding-top:105px}.ab-home-contact{padding-top:20px!important;padding-bottom:24px!important}}
