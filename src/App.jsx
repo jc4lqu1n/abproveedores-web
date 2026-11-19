@@ -406,7 +406,7 @@ function App() {
             Inicio
           </a>
 
-          <a href="#servicios" onClick={closeMenu}>
+          <a href="#catalogo" onClick={closeMenu}>
             Servicios
           </a>
 
@@ -599,6 +599,7 @@ function App() {
 
         <CommercialPlatform />
 
+        <details className="ab-expandable section"><summary>Conoce nuestras tecnologías y servicios en detalle</summary>
         <section
           className="technology-strip section"
           aria-label="Tecnologías con las que trabajamos"
@@ -757,6 +758,7 @@ function App() {
           </div>
         </section>
 
+        </details>
         <section
           className="content-section section"
           id="planes"
@@ -997,6 +999,7 @@ function App() {
   </div>
 </section>
 
+        <details className="ab-expandable section"><summary>Ver casos de experiencia y metodología de trabajo</summary>
         <section className="cases-section">
           <div className="section cases-inner">
             <div className="section-heading">
@@ -1142,6 +1145,7 @@ function App() {
           </div>
         </section>
 
+        </details>
         <section
           className="solutions-section"
           id="soluciones"
