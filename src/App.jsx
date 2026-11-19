@@ -488,14 +488,14 @@ function App() {
               </div>
             </a>
 
-            <div className="contact-card">
+            <a className="contact-card" href="https://wa.me/56986747101" target="_blank" rel="noopener noreferrer">
   <Phone size={25} />
 
   <div>
     <span>Atención comercial</span>
     <strong>Contacto vía WhatsApp</strong>
   </div>
-</div>
+</a>
 
             <div className="contact-card">
               <MapPin size={25} />
