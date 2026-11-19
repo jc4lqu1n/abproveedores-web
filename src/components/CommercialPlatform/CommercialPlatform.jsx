@@ -12,7 +12,7 @@ const catalog = [
 
 const fmt = new Intl.NumberFormat('es-CL');
 
-export default function CommercialPlatform() {
+export default function CommercialPlatform({ hideCatalog = false }) {
   const [category, setCategory] = useState('Todos');
   const [users, setUsers] = useState(25);
   const [sites, setSites] = useState(1);
@@ -35,7 +35,7 @@ export default function CommercialPlatform() {
 
   return (
     <div className="commercial-platform">
-      <section className="commercial-section section" id="catalogo">
+      {!hideCatalog && <section className="commercial-section section" id="catalogo">
         <div className="commercial-heading">
           <span>Catálogo de soluciones</span>
           <h2>Encuentra la solución tecnológica que necesita tu empresa.</h2>
@@ -57,7 +57,7 @@ export default function CommercialPlatform() {
             </article>;
           })}
         </div>
-      </section>
+      </section>}
 
       <section className="commercial-section commercial-configurator section" id="configurador">
         <div className="commercial-heading">
