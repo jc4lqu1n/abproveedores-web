@@ -2282,14 +2282,32 @@ a.contact-card:hover {
 @media(max-width:1150px){.ab-intro-feature{display:none}.ab-intro-bar{flex-wrap:wrap}.ab-showcase-copy{left:9%;max-width:70%}}
 @media(max-width:640px){.ab-showcase{height:430px}.ab-showcase-copy{left:9%;right:9%;max-width:none}.ab-showcase-copy h1{font-size:2.4rem}.ab-showcase-arrow{width:30px;height:30px;font-size:21px}.ab-showcase-arrow.left{left:5px}.ab-showcase-arrow.right{right:5px}.ab-intro-bar{padding-top:15px!important;padding-bottom:15px!important}.ab-intro-summary{max-width:100%}.ab-intro-actions{width:100%}.ab-intro-actions .button{flex:1;justify-content:center}}
 
-/* Independent module pages: display only the selected section, never scroll through the entire homepage. */
-main[data-module="inicio"] > :not(.ab-showcase):not(.ab-intro-bar),
-main[data-module="servicios"] > :not(.commercial-platform),
-main[data-module="configurador"] > :not(.commercial-platform),
-main[data-module="planes"] > :not(#planes),
-main[data-module="soluciones"] > :not(#soluciones),
-main[data-module="empresa"] > :not(#empresa),
-main[data-module="contacto"] > :not(#contacto),
-main[data-module="soporte"] > :not(#acceso-soporte){display:none!important}
-main[data-module="servicios"] .commercial-platform,main[data-module="configurador"] .commercial-platform{padding-top:30px}
-main[data-module="servicios"] .commercial-section,main[data-module="configurador"] .commercial-section{min-height:55vh}
+/* Each menu option is its own page. Secondary material is no longer hidden in accordions. */
+main[data-module] > *{display:none!important}
+main[data-module="inicio"] > .ab-showcase,
+main[data-module="inicio"] > .ab-intro-bar,
+main[data-module="servicios"] > .commercial-platform,
+main[data-module="servicios"] > .technology-strip,
+main[data-module="servicios"] > .integration-section,
+main[data-module="servicios"] > .metrics,
+main[data-module="servicios"] > #detalle-servicios,
+main[data-module="configurador"] > .commercial-platform,
+main[data-module="planes"] > #planes,
+main[data-module="soluciones"] > #servicedesk,
+main[data-module="soluciones"] > .cases-section,
+main[data-module="soluciones"] > .process-section,
+main[data-module="soluciones"] > #soluciones,
+main[data-module="empresa"] > #empresa,
+main[data-module="contacto"] > #contacto,
+main[data-module="soporte"] > #acceso-soporte{display:block!important}
+main[data-module="servicios"] .commercial-platform,
+main[data-module="configurador"] .commercial-platform{padding-top:20px}
+main[data-module="servicios"] .commercial-section,
+main[data-module="configurador"] .commercial-section{min-height:0}
+main[data-module="inicio"] > .ab-intro-bar{display:flex!important}
+main[data-module="servicios"] > .technology-strip,
+main[data-module="servicios"] > .integration-section,
+main[data-module="servicios"] > .metrics,
+main[data-module="servicios"] > #detalle-servicios,
+main[data-module="soluciones"] > .cases-section,
+main[data-module="soluciones"] > .process-section{margin-top:28px}
