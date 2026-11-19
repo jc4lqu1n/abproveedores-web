@@ -352,7 +352,7 @@ function App() {
   const [heroPaused, setHeroPaused] = useState(false);
   useEffect(() => {
     if (heroPaused) return undefined;
-    const timer = window.setInterval(() => setHeroSlide(current => (current + 1) % 6), 6500);
+    const timer = window.setInterval(() => setHeroSlide(current => (current + 1) % heroSlides.length), 6500);
     return () => window.clearInterval(timer);
   }, [heroPaused]);
   const [evaluationOpen, setEvaluationOpen] = useState(false);
@@ -460,178 +460,37 @@ function App() {
       </header>
 
       <main>
-        <section className="hero section" id="inicio">
-          <motion.div
-            className="hero-content"
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75 }}
-          >
-            <div className="eyebrow">
-              <span className="eyebrow-dot" />
-              Ingeniería en infraestructura tecnológica
+        <section className="ab-showcase" id="inicio" aria-label="Soluciones tecnológicas A&B">
+          <div className="ab-showcase-slide" key={heroSlide}>
+            <img src={heroSlides[heroSlide].image} alt={heroSlides[heroSlide].title} />
+            <div className="ab-showcase-shade" />
+            <div className="ab-showcase-copy">
+              <span>{heroSlides[heroSlide].eyebrow}</span>
+              <h1>{heroSlides[heroSlide].title}</h1>
+              <p>{heroSlides[heroSlide].description}</p>
+              <a className="ab-showcase-link" href="#configurador">Configurar mi solución <ArrowRight size={18}/></a>
             </div>
-
-            <h1>
-              Protegemos la infraestructura
-              <span>
-                {' '}
-                que mantiene su negocio funcionando.
-              </span>
-            </h1>
-
-            <p className="hero-description">
-              Diseñamos, implementamos y administramos
-              infraestructura TI, redes, servidores, cloud y
-              ciberseguridad para clínicas, notarías y empresas que
-              necesitan continuidad operacional.
-            </p>
-
-            <div className="hero-specialties">
-              <span>Infraestructura TI</span>
-              <span>Cloud</span>
-              <span>Ciberseguridad</span>
-              <span>Soporte administrado</span>
-            </div>
-
-            <div className="hero-actions">
-              <button
-                className="button button-primary"
-                type="button"
-                onClick={openEvaluation}
-              >
-                Solicitar evaluación
-                <ArrowRight size={19} />
-              </button>
-
-              <a
-                className="button button-secondary"
-                href="#acceso-soporte"
-              >
-                <Headphones size={20} />
-                A&B ServiceDesk
-              </a>
-            </div>
-
-            <div className="hero-trust">
-              <div>
-                <CheckCircle2 size={18} />
-                Atención presencial y remota
-              </div>
-
-              <div>
-                <CheckCircle2 size={18} />
-                Soluciones diseñadas a medida
-              </div>
-
-              <div>
-                <CheckCircle2 size={18} />
-                Seguimiento documentado
-              </div>
-            </div>
-          </motion.div>
-
-          <div className="ab-hero-carousel" aria-label="Especialidades de A&B" onMouseEnter={() => setHeroPaused(true)} onMouseLeave={() => setHeroPaused(false)} onFocusCapture={() => setHeroPaused(true)} onBlurCapture={() => setHeroPaused(false)}>
-            {heroSlide === 0 ? (
-          <motion.div
-            className="hero-panel ecosystem-panel"
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-          >
-            <div className="panel-header">
-              <div>
-                <span className="panel-status" />
-                Ecosistema tecnológico
-              </div>
-
-              <span>A&B Proveedores Integrales</span>
-            </div>
-
-            <div className="ecosystem-visual">
-              <div className="ecosystem-orbit orbit-one" />
-              <div className="ecosystem-orbit orbit-two" />
-
-              <div className="visual-core">
-                <ShieldCheck size={42} />
-                <strong>A&B</strong>
-                <span>Operación protegida</span>
-              </div>
-
-              <div className="visual-node ecosystem-node node-cloud">
-                <Cloud size={22} />
-
-                <div>
-                  <strong>Cloud</strong>
-                  <span>AWS · OCI · Microsoft 365</span>
-                </div>
-              </div>
-
-              <div className="visual-node ecosystem-node node-servers">
-                <Server size={22} />
-
-                <div>
-                  <strong>Servidores</strong>
-                  <span>Windows · Virtualización</span>
-                </div>
-              </div>
-
-              <div className="visual-node ecosystem-node node-security">
-                <ShieldCheck size={22} />
-
-                <div>
-                  <strong>Seguridad</strong>
-                  <span>Firewall · VPN · Antivirus</span>
-                </div>
-              </div>
-
-              <div className="visual-node ecosystem-node node-network">
-                <Network size={22} />
-
-                <div>
-                  <strong>Conectividad</strong>
-                  <span>Redes · WiFi · Monitoreo</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="panel-bottom">
-              <div>
-                <span>Infraestructura</span>
-                <strong>Administrada</strong>
-              </div>
-
-              <div>
-                <span>Seguridad</span>
-                <strong>Supervisada</strong>
-              </div>
-
-              <div>
-                <span>Soporte</span>
-                <strong>Centralizado</strong>
-              </div>
-            </div>
-          </motion.div>
-            ) : (
-              <div className="ab-hero-photo-slide" key={heroSlide}>
-                <img src={heroSlides[heroSlide - 1].image} alt={heroSlides[heroSlide - 1].title} />
-                <div className="ab-hero-photo-copy">
-                  <span>{heroSlides[heroSlide - 1].eyebrow}</span>
-                  <h2>{heroSlides[heroSlide - 1].title}</h2>
-                  <p>{heroSlides[heroSlide - 1].description}</p>
-                  <a href="#catalogo">Explorar soluciones <ArrowRight size={17}/></a>
-                </div>
-              </div>
-            )}
-            <button className="ab-hero-arrow prev" type="button" aria-label="Imagen anterior" onClick={() => setHeroSlide(current => (current + 5) % 6)}>‹</button>
-            <button className="ab-hero-arrow next" type="button" aria-label="Imagen siguiente" onClick={() => setHeroSlide(current => (current + 1) % 6)}>›</button>
-            <div className="ab-hero-dots" role="group" aria-label="Seleccionar imagen">
-              {Array.from({length: 6}, (_, i) => <button key={i} type="button" className={heroSlide === i ? 'active' : ''} aria-label={`Ver imagen ${i + 1} de 6`} aria-pressed={heroSlide === i} onClick={() => setHeroSlide(i)}/>)}
-            </div>
+          </div>
+          <button type="button" className="ab-showcase-arrow left" aria-label="Anterior" onClick={() => setHeroSlide(i => (i + heroSlides.length - 1) % heroSlides.length)}>‹</button>
+          <button type="button" className="ab-showcase-arrow right" aria-label="Siguiente" onClick={() => setHeroSlide(i => (i + 1) % heroSlides.length)}>›</button>
+          <div className="ab-showcase-dots" role="group" aria-label="Seleccionar especialidad">
+            {heroSlides.map((slide,i) => <button key={slide.title} type="button" aria-label={`Mostrar ${slide.title}`} aria-pressed={heroSlide===i} className={heroSlide===i?'active':''} onClick={() => setHeroSlide(i)}/>)}
+          </div>
+        </section>
+        <section className="ab-intro-bar section" aria-label="A&B Proveedores">
+          <div className="ab-intro-summary">
+            <strong>Ingeniería TI para empresas</strong>
+            <span>Redes, servidores, seguridad, soporte y desarrollo con continuidad operacional.</span>
+          </div>
+          <div className="ab-intro-feature"><CheckCircle2 size={17}/><div><strong>Atención directa</strong><span>Soporte presencial y remoto</span></div></div>
+          <div className="ab-intro-feature"><ShieldCheck size={17}/><div><strong>Soluciones a medida</strong><span>Evaluación según tus necesidades</span></div></div>
+          <div className="ab-intro-actions">
+            <button type="button" className="button button-primary" onClick={openEvaluation}>Solicitar evaluación <ArrowRight size={17}/></button>
+            <a className="button button-secondary" href="#acceso-soporte"><Headphones size={18}/> A&B ServiceDesk</a>
           </div>
         </section>
 
-        <CommercialPlatform />
+        <CommercialPlatform hideCatalog />
 
         <details className="ab-expandable section"><summary>Conoce nuestras tecnologías y servicios en detalle</summary>
         <section
