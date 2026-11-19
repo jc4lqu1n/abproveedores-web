@@ -2281,3 +2281,15 @@ a.contact-card:hover {
 .ab-intro-summary{max-width:280px}.ab-intro-summary strong,.ab-intro-feature strong{display:block;font-size:.88rem;color:#fff;margin-bottom:5px}.ab-intro-summary span,.ab-intro-feature span{display:block;font-size:.75rem;line-height:1.4;color:#b9c8d6}.ab-intro-feature{display:flex;gap:10px;align-items:center}.ab-intro-feature>svg{color:#37c9bd;flex-shrink:0}.ab-intro-actions{display:flex;gap:9px;flex-wrap:wrap}.ab-intro-actions .button{font-size:.78rem;padding:10px 13px;min-height:0;white-space:nowrap}
 @media(max-width:1150px){.ab-intro-feature{display:none}.ab-intro-bar{flex-wrap:wrap}.ab-showcase-copy{left:9%;max-width:70%}}
 @media(max-width:640px){.ab-showcase{height:430px}.ab-showcase-copy{left:9%;right:9%;max-width:none}.ab-showcase-copy h1{font-size:2.4rem}.ab-showcase-arrow{width:30px;height:30px;font-size:21px}.ab-showcase-arrow.left{left:5px}.ab-showcase-arrow.right{right:5px}.ab-intro-bar{padding-top:15px!important;padding-bottom:15px!important}.ab-intro-summary{max-width:100%}.ab-intro-actions{width:100%}.ab-intro-actions .button{flex:1;justify-content:center}}
+
+/* Independent module pages: display only the selected section, never scroll through the entire homepage. */
+main[data-module="inicio"] > :not(.ab-showcase):not(.ab-intro-bar),
+main[data-module="servicios"] > :not(.commercial-platform),
+main[data-module="configurador"] > :not(.commercial-platform),
+main[data-module="planes"] > :not(#planes),
+main[data-module="soluciones"] > :not(#soluciones),
+main[data-module="empresa"] > :not(#empresa),
+main[data-module="contacto"] > :not(#contacto),
+main[data-module="soporte"] > :not(#acceso-soporte){display:none!important}
+main[data-module="servicios"] .commercial-platform,main[data-module="configurador"] .commercial-platform{padding-top:30px}
+main[data-module="servicios"] .commercial-section,main[data-module="configurador"] .commercial-section{min-height:55vh}
