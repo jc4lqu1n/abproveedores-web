@@ -349,12 +349,10 @@ const workProcess = [
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [heroSlide, setHeroSlide] = useState(0);
-  const [heroPaused, setHeroPaused] = useState(false);
   useEffect(() => {
-    if (heroPaused) return undefined;
     const timer = window.setInterval(() => setHeroSlide(current => (current + 1) % heroSlides.length), 6500);
     return () => window.clearInterval(timer);
-  }, [heroPaused]);
+  }, []);
   const [evaluationOpen, setEvaluationOpen] = useState(false);
 
   const closeMenu = () => {
@@ -421,12 +419,8 @@ function App() {
             Inicio
           </a>
 
-          <a href="#catalogo" onClick={closeMenu}>
+          <a href="#inicio" onClick={closeMenu}>
             Servicios
-          </a>
-
-          <a href="#catalogo" onClick={closeMenu}>
-            Catálogo
           </a>
 
           <a href="#configurador" onClick={closeMenu}>
