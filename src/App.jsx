@@ -429,7 +429,7 @@ function App() {
 
           <a href="/?modulo=empresa" onClick={closeMenu}>Empresa</a>
 
-          <a href="/?modulo=contacto" onClick={closeMenu}>Contacto</a>
+          <button type="button" className="ab-nav-contact" onClick={() => { closeMenu(); openEvaluation(); }}>Contacto</button>
 
           <a
             className="nav-support"
@@ -471,6 +471,42 @@ function App() {
           <div className="ab-intro-actions">
             <button type="button" className="button button-primary" onClick={openEvaluation}>Solicitar evaluación <ArrowRight size={17}/></button>
             <a className="button button-secondary" href="/?modulo=soporte"><Headphones size={18}/> A&B ServiceDesk</a>
+          </div>
+        </section>
+
+        <section className="ab-home-contact section" aria-label="Contacto y cobertura"><div className="ab-home-contact-heading">Hablemos de tu proyecto</div>
+          <div className="contact-grid">
+            <a
+              className="contact-card"
+              href="mailto:contacto@abproveedoresi.cl"
+            >
+              <Mail size={25} />
+
+              <div>
+                <span>Correo electrónico</span>
+                <strong>contacto@abproveedoresi.cl</strong>
+              </div>
+            </a>
+
+            <div className="contact-card">
+  <Phone size={25} />
+
+  <div>
+    <span>Atención comercial</span>
+    <strong>Contacto vía WhatsApp</strong>
+  </div>
+</div>
+
+            <div className="contact-card">
+              <MapPin size={25} />
+
+              <div>
+                <span>Cobertura</span>
+                <strong>
+                  Región Metropolitana, Chile
+                </strong>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1172,57 +1208,7 @@ function App() {
           </div>
         </section>
 
-        <section
-          className="contact-section section"
-          id="contacto"
-        >
-          <div className="section-heading">
-            <span>Contacto</span>
 
-            <h2>
-              Conversemos sobre su infraestructura tecnológica.
-            </h2>
-
-            <p>
-              Cuéntenos qué necesita resolver y evaluaremos el alcance
-              técnico más adecuado para su empresa.
-            </p>
-          </div>
-
-          <div className="contact-grid">
-            <a
-              className="contact-card"
-              href="mailto:contacto@abproveedoresi.cl"
-            >
-              <Mail size={25} />
-
-              <div>
-                <span>Correo electrónico</span>
-                <strong>contacto@abproveedoresi.cl</strong>
-              </div>
-            </a>
-
-            <div className="contact-card">
-  <Phone size={25} />
-
-  <div>
-    <span>Atención comercial</span>
-    <strong>Contacto vía WhatsApp</strong>
-  </div>
-</div>
-
-            <div className="contact-card">
-              <MapPin size={25} />
-
-              <div>
-                <span>Cobertura</span>
-                <strong>
-                  Región Metropolitana, Chile
-                </strong>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer className="footer">
@@ -1250,7 +1236,7 @@ function App() {
             <a href="/?modulo=planes">Planes</a>
             <a href="/?modulo=soporte">ServiceDesk</a>
             <a href="/?modulo=soluciones">Soluciones</a>
-            <a href="/?modulo=contacto">Contacto</a>
+            <button type="button" className="ab-footer-contact" onClick={openEvaluation}>Contacto</button>
             <a href="/?modulo=soporte">Soporte</a>
           </div>
 
