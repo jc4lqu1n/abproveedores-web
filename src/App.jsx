@@ -28,6 +28,7 @@ import {
 
 import EvaluationModal from './components/EvaluationModal/EvaluationModal';
 import AssistantWidget from './components/Assistant/AssistantWidget';
+import CommercialPlatform from './components/CommercialPlatform/CommercialPlatform';
 
 const SERVICE_DESK_URL = 'https://ab-servicedesk.vercel.app';
 
@@ -409,6 +410,14 @@ function App() {
             Servicios
           </a>
 
+          <a href="#catalogo" onClick={closeMenu}>
+            Catálogo
+          </a>
+
+          <a href="#configurador" onClick={closeMenu}>
+            Configura tu TI
+          </a>
+
           <a href="#planes" onClick={closeMenu}>
             Planes
           </a>
@@ -587,6 +596,8 @@ function App() {
             </div>
           </motion.div>
         </section>
+
+        <CommercialPlatform />
 
         <section
           className="technology-strip section"
