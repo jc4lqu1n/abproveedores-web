@@ -1246,12 +1246,12 @@ function App() {
           </div>
 
           <div className="footer-links">
-            <a href="#servicios">Servicios</a>
-            <a href="#planes">Planes</a>
-            <a href="#servicedesk">ServiceDesk</a>
-            <a href="#soluciones">Soluciones</a>
-            <a href="#contacto">Contacto</a>
-            <a href="#acceso-soporte">Soporte</a>
+            <a href="/?modulo=servicios">Servicios</a>
+            <a href="/?modulo=planes">Planes</a>
+            <a href="/?modulo=soporte">ServiceDesk</a>
+            <a href="/?modulo=soluciones">Soluciones</a>
+            <a href="/?modulo=contacto">Contacto</a>
+            <a href="/?modulo=soporte">Soporte</a>
           </div>
 
           <p>
